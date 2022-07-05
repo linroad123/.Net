@@ -30,11 +30,12 @@ jobs:
         uses: CycloneDX/gh-dotnet-generate-sbom@master
         with:
           path: ./Src/MultiSafepay.sln
+          out: ./bom.json
           json: true
           
       - name: Upload bom file
         uses: actions/upload-artifact@v1
         with:
           name: ${{ env.ARTIFACT_NAME }}
-          path: bom.xml
+          path: bom.json
           
